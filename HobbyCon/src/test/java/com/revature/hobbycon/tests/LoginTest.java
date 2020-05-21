@@ -15,8 +15,8 @@ import com.revature.hobbycon.data.UserData;
 public class LoginTest {
 
 	private UserData ud;
-	private static final String FIRST_NAME = "Guy";
-	private static final String LAST_NAME = "Ferrari";
+	
+	private static final String USER_PW = "Ferrari";
 	private static final String FULL_NAME = "Guy Ferrari";
 	
 	
@@ -33,8 +33,8 @@ public class LoginTest {
 	@Before
 	public void setUp() throws Exception {
 		ud = new UserData();
-		ud.setFirstName(FIRST_NAME);
-		ud.setLastName(LAST_NAME);
+		ud.setUserName(FULL_NAME);
+		ud.setUserPW(USER_PW);
 		ud.getUserName();
 		
 		

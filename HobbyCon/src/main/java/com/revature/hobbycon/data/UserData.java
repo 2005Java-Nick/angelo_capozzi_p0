@@ -1,6 +1,6 @@
 package com.revature.hobbycon.data;
 
-import java.io.Serializable;
+//import java.io.Serializable;
 
 import org.apache.log4j.Logger;
 
@@ -8,61 +8,52 @@ import com.revature.hobbycon.exceptions.NonLetterCharacterAdded;
 
 //import java.util.Scanner;
 
-public class UserData implements Serializable{
+public class UserData {		
 	
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1268233957836567201L;
-	/**
-	 * 
-	 */
-	private static Logger log = Logger.getRootLogger();
+	private static Logger log = Logger.getRootLogger();	
 	
 	//user variables	
-	protected String firstName;
-	public String lastName;	
-	protected String userName;	
+	
+	public String userName;	
 	protected int userId;
-	protected String userPW;
-	protected String hobbyName;
-	protected int hobbyID;
+	public String userPW;
+	public String hobbyName;
+	protected int hobbyID;	
+	public String userInfo;
+	
+	public UserData() {
+		
+	}
+	
+	public UserData(String userName) {
+		this.userName = userName;
+		
+		
+	}
+	
+	public UserData(String userName, String hobbyName) {
+		this.userName = userName;
+		
+		this.hobbyName = hobbyName;
+	}
+	
+	public UserData(String userName, String userPW, String hobbyName) {
+		this.userName = userName;
+		this.userPW = userPW;
+		this.hobbyName = hobbyName;
+	}	
 	
 	
+	public String getUserInfo() {
+		return userName + userPW + hobbyName;
+	}
 	
-	
-	
-	
-	
-	//=======get set first name==========
-		public String getFirstName() {
-			return firstName;
-		}
-		public void setFirstName(String firstName) throws NonLetterCharacterAdded {
-			isALetter(firstName);
-			this.firstName = firstName;
-			try {
-				
-			}catch(IllegalArgumentException e) {
-				log.error("Please use only letters in your name, this isnt a chat room");
-				throw new NonLetterCharacterAdded(e);
-			}
-			
-		}
-		//=========get set last name===============
-		public String getLastName() {
-			return lastName;
-		}
-		public void setLastName(String lastName) {
-			this.lastName = lastName;
-		}
 	
 	//============get/set user name=============
 	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName) throws NonLetterCharacterAdded {
+	public String setUserName(String userName) throws NonLetterCharacterAdded {
 		isALetter(userName);
 		this.userName = userName;
 		try {
@@ -70,8 +61,9 @@ public class UserData implements Serializable{
 		}catch(IllegalArgumentException e) {
 			log.error("Please use only letters in your name, this isnt a chat room");
 			throw new NonLetterCharacterAdded(e);
-		}
+		}	
 		
+		return null;
 	}
 	//============get/set user ID===================
 	public int getUserId() {

@@ -57,8 +57,8 @@ public class TestLettersOnly {
 	@Before
 	public void setUp() throws Exception {
 		 ud = new UserData();
-		 ud.setFirstName("Gregg");
-		 ud.setLastName("Cooper");
+		 ud.setUserName("Gregg");
+		 ud.setUserPW("Cooper");
 		 ud.getUserName();	 
 		 me.runMenu();
 	}
@@ -73,7 +73,7 @@ public class TestLettersOnly {
 		assertFalse(isALetter(" "));
 		assertFalse(isALetter(""));
 		assertTrue(isALetter("Pepper"));
-		assertTrue(isALetter(ud.getFirstName()));
+		
 		assertFalse(isALetter(ud.getUserName()));
 		
 	}
